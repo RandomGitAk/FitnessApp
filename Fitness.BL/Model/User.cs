@@ -4,12 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Fitness.BL.Model
 {
+    [Serializable]
     /// <summary>
     /// Користувач.
     /// </summary>
-    class User
+    /// 
+
+
+    public class User
     {
         #region Властивості
         /// <summary>
