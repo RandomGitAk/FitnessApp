@@ -24,11 +24,11 @@ namespace Fitness.BL.Model
         /// <summary>
         /// Гендер.
         /// </summary>
-        public Gender Gender { get; }
+        public Gender Gender { get; set; }
         /// <summary>
         /// Дата народження.
         /// </summary>
-        public DateTime BirthDate { get; }
+        public DateTime BirthDate { get; set; }
 
         /// <summary>
         /// Вага.
@@ -38,6 +38,15 @@ namespace Fitness.BL.Model
         /// Зріст.
         /// </summary>
         public double Height { get; set; }
+
+        public int Age { get {
+                //DateTime nowDate = new DateTime();
+                //int age = nowDate.Year - BirthDate.Year;
+                //if (BirthDate > nowDate.AddYears(-age)) age--;
+                //return age;
+                return DateTime.Now.Year - BirthDate.Year;
+            }
+        }
         #endregion
 
         /// <summary>
@@ -79,9 +88,17 @@ namespace Fitness.BL.Model
             Weight = weight;
             Height = height;
         }
+        public User(string name) 
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentNullException("Ім'я користувача не може бути пустим чи null.", nameof(name));
+            }
+            Name = name;
+        }
         public override string ToString()
         {
-            return Name;
+            return Name + " " + Age;
         }
     }
 }
