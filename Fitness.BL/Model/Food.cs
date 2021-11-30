@@ -7,29 +7,33 @@ using System.Threading.Tasks;
 namespace Fitness.BL.Model
 {
     [Serializable]
-  public  class Food
+    public class Food
     {
-        public string Name { get; }
-        public double Callories { get; }
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+        public double Callories { get; set; }
 
         /// <summary>
         /// Білки
         /// </summary>
-        public double Proteins { get; }
+        public double Proteins { get; set; }
         /// <summary>
         /// Жири
         /// </summary>
-        public double Fats { get; }
+        public double Fats { get; set; }
         /// <summary>
         /// Вуглеводи
         /// </summary>
-        public double Carbohydrates { get; }
+        public double Carbohydrates { get; set; }
         /// <summary>
         /// Калорії за 100грм продукта
         /// </summary>
-        public double Calories { get; }
+        public double Calories { get; set; }
 
-    
+        public virtual ICollection<Eating> Eatings { get; set; }
+
+        public Food(){}
 
         public Food(string name) : this(name, 0, 0, 0, 0) {}
 

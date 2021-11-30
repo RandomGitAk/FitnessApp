@@ -11,15 +11,16 @@ namespace Fitness.BL.Model
  [Serializable]
     public class Gender
     {
+        public int Id { get; set; }
         /// <summary>
         /// Назва.
         /// </summary>  
-        public string Name { get; }
-
-   /// <summary>
-   /// Створити новий гендер.
-   /// </summary>
-   /// <param name="name">Ім'я гендера</param>
+        public string Name { get; set; }
+        public Gender() { }
+        /// <summary>
+        /// Створити новий гендер.
+        /// </summary>
+        /// <param name="name">Ім'я гендера</param>
         public Gender (string name)
         {
             if(string.IsNullOrWhiteSpace(name))

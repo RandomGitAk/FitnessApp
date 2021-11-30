@@ -16,11 +16,12 @@ namespace Fitness.BL.Model
 
     public class User
     {
+        public int Id { get; set; }
         #region Властивості
         /// <summary>
         /// Ім'я.
         /// </summary>
-        public string Name { get; }
+        public string Name { get; set; }
         /// <summary>
         /// Гендер.
         /// </summary>
@@ -39,6 +40,9 @@ namespace Fitness.BL.Model
         /// </summary>
         public double Height { get; set; }
 
+        public virtual ICollection<Eating> Eatings { get; set; }
+        public virtual ICollection<Exercise> Exercises { get; set; }
+
         public int Age { get {
                 //DateTime nowDate = new DateTime();
                 //int age = nowDate.Year - BirthDate.Year;
@@ -48,7 +52,7 @@ namespace Fitness.BL.Model
             }
         }
         #endregion
-
+        public User() { }
         /// <summary>
         /// Створити нового користувача
         /// </summary>
